@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Tag: nodejs | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/nodejs/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -152,58 +152,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-nodejs基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/05/20/nodejs基础/" class="archive-article-date">
+  	<time datetime="2019-05-20T13:27:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-20</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/20/nodejs基础/">nodejs基础</a>
+      <a class="archive-article-title" href="/2019/05/20/nodejs基础/">nodejs基础</a>
     </h1>
   
 
-        
-        <a href="/2019/05/20/nodejs基础/" class="archive-article-date">
-  	<time datetime="2019-05-20T13:27:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Node-js创建第一个应用"><a href="#Node-js创建第一个应用" class="headerlink" title="Node.js创建第一个应用"></a>Node.js创建第一个应用</h1><p>使用Node.js时,我们不仅仅在实现一个应用，同时还实现了整个HTTP服务器。事实上，我们的Web应用以及对应的Web服务器基本上是一样的。<br>在我们创建Node.js第一个“Hello,World”应用前，让我们先了解下Node.js应用是由哪几部分组成的：</p>
-<ol>
-<li><p>引入required模块：我们可以使用require指令来载入Node.js模块。</p>
-</li>
-<li><p>创建服务器：服务器可以监听客户端的请求，类似于Apache、Nginx等HTTP服务器。</p>
-</li>
-<li><p>接收请求与响应请求：服务器很容易创建，客户端可以使用浏览器或终端发送HTTP请求，服务器接收请求后返回响应数据。</p>
-</li>
-</ol>
-<hr>
-<h2 id="创建Node-js应用"><a href="#创建Node-js应用" class="headerlink" title="创建Node.js应用"></a>创建Node.js应用</h2><h3 id="步骤一、引入required模块"><a href="#步骤一、引入required模块" class="headerlink" title="步骤一、引入required模块"></a>步骤一、引入required模块</h3><p>我们使用require指令来载入http模块，并将实例化的HTTP赋值给变量http，实例如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="步骤二、创建服务器"><a href="#步骤二、创建服务器" class="headerlink" title="步骤二、创建服务器"></a>步骤二、创建服务器</h3><p>接下来我们使用http.createServer()方法创建服务器，并使用listen方法绑定3000端口。函数通过request,response参数来接收和响应数据。<br>实例如下，在你项目的根目录下创建一个叫server.js的文件，并写入以下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request,response</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//发送HTTP头部</span></span><br><span class="line">  <span class="comment">//HTTP状态值：200：Ok</span></span><br><span class="line">  <span class="comment">//内容类型：text/plain</span></span><br><span class="line">  response.writeHead(<span class="number">200.</span>&#123;<span class="string">'Content-Type'</span>:<span class="string">'text/html;charset=utf-8'</span>&#125;);</span><br><span class="line">  <span class="comment">//发送响应数据"Hello World"</span></span><br><span class="line">  response.end(<span class="string">'Hello World'</span>);</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br><span class="line"><span class="comment">//终端打印如下信息</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Server running at http://127.0.0.1:3000/'</span>);</span><br></pre></td></tr></table></figure>
-<p>以上代码我们完成了一个可以工作的HTTP服务器。<br>使用node命令执行以上的代码:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node server.js</span><br><span class="line">Server running at http:<span class="comment">//127.0.0.1:3000/</span></span><br></pre></td></tr></table></figure>
-<p>接下来，打开浏览器访问<a href="http://127.0.0.1:3000/，你会看到一个写着&quot;Hello" target="_blank" rel="noopener">http://127.0.0.1:3000/，你会看到一个写着&quot;Hello</a> World”的网页。</p>
-<h4 id="分析Node-js的HTTP服务器："><a href="#分析Node-js的HTTP服务器：" class="headerlink" title="分析Node.js的HTTP服务器："></a>分析Node.js的HTTP服务器：</h4><ul>
-<li>第一行请求(require)Node.js自带的http模块,并且把它赋值给http变量。</li>
-</ul>
-<ul>
-<li>接下来我们调用http模块提供的函数：createServer。这个函数会返回一个对象，这个对象有一个叫做listen的方法，这个方法有一个数值参数，指定这个HTTP服务器监听的端口号。</li>
-</ul>
-<hr>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -215,209 +191,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/20/nodejs基础/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-node介绍及入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/20/node介绍及入门/">node介绍及入门</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/20/node介绍及入门/" class="archive-article-date">
-  	<time datetime="2019-05-20T03:38:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="NodeJS基础-一"><a href="#NodeJS基础-一" class="headerlink" title="NodeJS基础(一)"></a>NodeJS基础(一)</h1><h2 id="一、Node-js简介"><a href="#一、Node-js简介" class="headerlink" title="一、Node.js简介"></a>一、Node.js简介</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><h6 id="V8引擎本身就是用于Chrome浏览器的JS解释部分，但是Ryan-Dahl这哥们，鬼才般的，把这个V8搬到了服务器上，用于做服务器的软件。"><a href="#V8引擎本身就是用于Chrome浏览器的JS解释部分，但是Ryan-Dahl这哥们，鬼才般的，把这个V8搬到了服务器上，用于做服务器的软件。" class="headerlink" title="V8引擎本身就是用于Chrome浏览器的JS解释部分，但是Ryan Dahl这哥们，鬼才般的，把这个V8搬到了服务器上，用于做服务器的软件。"></a>V8引擎本身就是用于Chrome浏览器的JS解释部分，但是Ryan Dahl这哥们，鬼才般的，把这个V8搬到了服务器上，用于做服务器的软件。</h6><h6 id="Node-js是一个专注于实现高性能Web服务器优化的专家，几经探索，几经挫折后，遇到V8而诞生的项目。"><a href="#Node-js是一个专注于实现高性能Web服务器优化的专家，几经探索，几经挫折后，遇到V8而诞生的项目。" class="headerlink" title="Node.js是一个专注于实现高性能Web服务器优化的专家，几经探索，几经挫折后，遇到V8而诞生的项目。"></a>Node.js是一个专注于实现高性能Web服务器优化的专家，几经探索，几经挫折后，遇到V8而诞生的项目。</h6><h6 id="Node-js是一个让JavaScript运行在服务器端的开发平台，它让JavaScript的触角伸到了服务器端，可以与PHP、JSP、Python、Ruby平起平坐。"><a href="#Node-js是一个让JavaScript运行在服务器端的开发平台，它让JavaScript的触角伸到了服务器端，可以与PHP、JSP、Python、Ruby平起平坐。" class="headerlink" title="Node.js是一个让JavaScript运行在服务器端的开发平台，它让JavaScript的触角伸到了服务器端，可以与PHP、JSP、Python、Ruby平起平坐。"></a>Node.js是一个让JavaScript运行在服务器端的开发平台，它让JavaScript的触角伸到了服务器端，可以与PHP、JSP、Python、Ruby平起平坐。</h6><h6 id="但Node似乎有点不同："><a href="#但Node似乎有点不同：" class="headerlink" title="但Node似乎有点不同："></a>但Node似乎有点不同：</h6><ul>
-<li><strong>Node.js不是一种独立的语言</strong>,与PHP、JSP、Python、Perl、Ruby的“既是语言，也是平台”不同，Node.js的<strong>使用JavaScript进行编程</strong>，运行在JavaScript引擎上（V8）。</li>
-</ul>
-<ul>
-<li>与PHP、JSP等相比（PHP、JSP、.net都需要运行在服务器程序上，Apache、Naginx、Tomcat、IIS。</li>
-</ul>
-<p>），<strong>Node.js跳过了Apache、Naginx、IIS等HTTP服务器，它自己不用建设在任何服务器软件之上</strong>。Node.js的许多设计理念与经典架构（LAMP = Linux + Apache + MySQL + PHP）有着很大的不同，可以提供强大的伸缩能力。一会儿我们就将看到，Node.js没有web容器。</p>
-<p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">官网</a></p>
-<p>特点：Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.</p>
-<h3 id="1-2-特点"><a href="#1-2-特点" class="headerlink" title="1.2 特点"></a>1.2 特点</h3><p>所谓的特点，就是Node.js是如何解决服务器高性能瓶颈问题的。</p>
-<p>单线程</p>
-<p>在Java、PHP或者.net等服务器端语言中，会为每一个客户端连接创建一个新的线程。而每个线程需要耗费大约2MB内存。也就是说，理论上，一个8GB内存的服务器可以同时连接的最大用户数为4000个左右。要让Web应用程序支持更多的用户，就需要增加服务器的数量，而Web应用程序的硬件成本当然就上升了。</p>
-<p>Node.js不为每个客户连接创建一个新的线程，而仅仅使用一个线程。当有用户连接了，就触发一个内部事件，通过非阻塞I/O、事件驱动机制，让Node.js程序宏观上也是并行的。使用Node.js，一个8GB内存的服务器，可以同时处理超过4万用户的连接。</p>
-<p>另外，带线程的带来的好处，还有操作系统完全不再有线程创建、销毁的时间开销。</p>
-<p>坏处，就是一个用户造成了线程的崩溃，整个服务都崩溃了，其他人也崩溃了。</p>
-<p><img src="https://images2015.cnblogs.com/blog/954549/201605/954549-20160519003140013-427099540.jpg" alt="线程图1"><br><img src="https://images2015.cnblogs.com/blog/954549/201605/954549-20160519003141623-1627036712.jpg" alt="线程图2"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/20/node介绍及入门/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/19/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/19/hello-world/" class="archive-article-date">
-  	<time datetime="2019-05-19T14:26:34.549Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/19/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -439,10 +225,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
